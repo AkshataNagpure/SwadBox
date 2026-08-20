@@ -1,153 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BiteBox Cart</title>
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>SwadBox - Cart</title>
 
     <link rel="stylesheet" href="style.css">
 
     <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
-    <header>
-        <nav>
-           
-            <img src="Logo.png" alt="BiteBox Logo" height="60px" width="250px">
 
-            <button class="menu-btn" onclick="toggleMenu()">
-                <i id="menuIcon" class="fa fa-bars"></i>
-            </button>
-            
+<script>
 
-            <ul id="navMenu">
-                <li><a href="home.html" class="active">Home <i class="fa fa-home"></i></a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="bitedeals.html">Bite Deals</a></li>
-                <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
-                <li class="login"><a href="login.html">Login<i class="fa fa-sign-in"></i></a></li>
-            </ul>
+    if (localStorage.getItem("loggedIn") !== "true") {
 
-        </nav>
-    </header>
+        window.location.href = "login.html";
 
-    <section class="cart">
-        <table>
-            <thead>
-                <th>Item</th>
-                <th>Price</th>
-                <th>Qty</th>
-                <th>Total</th>
-                <th>Remove</th>
-            </thead>
+    }
 
-            <tbody>
-               <tr>
-                    <td class="item">
-                        <img src="food-image.png">
-                        <div>
-                            <h4>Burger</h4>
-                            <p>Cheesy Burger</p>
-                        </div> 
-                    </td>
-                    <td>₹199</td>
-                    <td>
-                        <div class="qty-box">
-                            <button>-</button>
-                            <span>1</span>
-                            <button>+</button>
-                        </div>
-                    </td>
-                    <td>₹199</td>
-                    <td><button class="remove">❌</button></td>
-               </tr>
-               
-               
-
-               <tr>
-                    <td class="item">
-                        <img src="pizza.png">
-                        <div>
-                            <h4>Capsicum Pizza</h4>
-                            <p>Cheesy Pizza with fresh capsicum</p>
-                        </div> 
-                    </td>
-                    <td>₹149</td>
-                    <td>
-                        <div class="qty-box">
-                            <button>-</button>
-                            <span>2</span>
-                            <button>+</button>
-                        </div>
-                    </td>
-                    <td>₹298</td>
-                    <td><button class="remove">❌</button></td>
-               </tr>
+</script>
 
 
+<header>
+
+    <nav>
+
+        <a href="home.html" class="logo">
+
+            <img src="Logo.png" alt="SwadBox Logo">
+
+        </a>
 
 
-               <tr>
-                    <td class="item">
-                        <img src="alfredo.png">
-                        <div>
-                            <h4>Alfredo pasta</h4>
-                            <p>Creamy Alfredo sauce with tender pasta</p>
-                        </div> 
-                    </td>
-                    <td>₹299</td>
-                    <td>
-                        <div class="qty-box">
-                            <button>-</button>
-                            <span>1</span>
-                            <button>+</button>
-                        </div>
-                    </td>
-                    <td>₹299</td>
-                    <td><button class="remove">❌</button></td>
-               </tr>
+        <button class="menu-btn" onclick="toggleMenu()">
+
+            <i id="menuIcon" class="fa fa-bars"></i>
+
+        </button>
 
 
-               <tr>
-                    <td class="item">
-                        <img src="oreoshake.png">
-                        <div>
-                            <h4>Oreo Shake</h4>
-                            <p>Rich Oreo milkshake topped with whipped cream</p>
-                        </div> 
-                    </td>
-                    <td>₹179</td>
-                    <td>
-                        <div class="qty-box">
-                            <button>-</button>
-                            <span>1</span>
-                            <button>+</button>
-                        </div>
-                    </td>
-                    <td>₹179</td>
-                    <td><button class="remove">❌</button></td>
-               </tr>
+        <ul id="navMenu">
+
+            <li>
+
+                <a href="home.html">
+
+                    Home
+                    <i class="fa fa-home"></i>
+
+                </a>
+
+            </li>
 
 
+            <li>
+
+                <a href="menu.html">
+                    Menu
+                </a>
+
+            </li>
 
 
+            <li>
+
+                <a href="bitedeals.html">
+                    Bite Deals
+                </a>
+
+            </li>
 
 
+            <li>
+
+                <a href="cart.html" class="active">
+
+                    <i class="fa fa-shopping-cart"></i>
+
+                    <span id="cartCount">0</span>
+
+                </a>
+
+            </li>
 
 
+            <li class="login">
 
-               <tr class="grand-total">
-                    <td colspan="3">Grand Total</td>
-                    <td>₹826</td>
-                    <td><button>Proceed</button></td>
-               </tr>
-            </tbody>
-        </table>
-    </section>
+                <a href="#" onclick="logoutUser()">
+
+                    Logout
+                    <i class="fa fa-sign-out"></i>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
 
 
-    <script src="scripts.js"></script>
+<section class="cart-page">
+
+    <h1>
+        Your Cart
+    </h1>
+
+
+    <div id="cartContainer"></div>
+
+
+    <div class="cart-summary">
+
+        <h2 id="total">
+            Total: ₹0
+        </h2>
+
+        <button onclick="checkout()">
+            Proceed to Checkout
+        </button>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 BiteBox. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="scripts.js"></script>
+
 </body>
+
 </html>

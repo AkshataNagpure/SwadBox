@@ -1,63 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BiteBox Login</title>
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>SwadBox - Login</title>
 
     <link rel="stylesheet" href="style.css">
 
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <header>
-        <nav>
-           
-            <img src="Logo.png" alt="BiteBox Logo" height="60px" width="250px">
 
-            <button class="menu-btn" onclick="toggleMenu()">
-                <i id="menuIcon" class="fa fa-bars"></i>
+<section class="auth-container">
+
+    <div class="auth-box">
+
+        <div class="auth-logo">
+
+            <img src="Logo.png" alt="SwadBox">
+
+        </div>
+
+        <h2>Welcome to BiteBox</h2>
+
+        <p class="auth-subtitle">
+            Login to order your favourite food
+        </p>
+
+        <form onsubmit="loginUser(event)">
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="Enter Email"
+                required
+            >
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Enter Password"
+                required
+            >
+
+            <button type="submit">
+                Login
             </button>
-            
 
-            <ul id="navMenu">
-                <li><a href="home.html" class="active">Home <i class="fa fa-home"></i></a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="bitedeals.html">Bite Deals</a></li>
-                <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
-                <li class="login"><a href="login.html">Login<i class="fa fa-sign-in"></i></a></li>
-            </ul>
+        </form>
 
-        </nav>
-    </header>
+    </div>
 
-    <section class="auth-container">
-        <div class="auth-box">
-            <h2>Login to Bite <span>Box</span></h2>
-            <form>
-                <input type="email" placeholder="Enter Email" id="email" required>
+</section>
 
-                <div style="position: relative;">
-                    <input type="password" placeholder="Enter Password" id="password" required>
-                    <span onclick="togglePassword()" 
-                        style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);cursor: pointer; color: #bd1e1e;">
-                        <i class="fa fa-eye"></i>
-                    </span>
-                </div>
+<script src="scripts.js"></script>
 
-
-                <button type="button" onclick="login()">Login</button>    
-            </form>
-            <p id="error" style="color: red;"></p>
-            <p><a href="signup.html">Forgot password</a></p>
-            <p>Don't have an account ?<a href="signup.html">Signup</a></p>
-        </div>    
-    </section>
-
-
-
-    <script src="scripts.js"></script>
 </body>
+
 </html>

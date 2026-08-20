@@ -1,120 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BiteBox</title>
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>SwadBox - Home</title>
 
     <link rel="stylesheet" href="style.css">
 
     <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
 <body>
-    <header>
-        <nav>
-           
-            <img src="Logo.png" alt="BiteBox Logo" height="60px" width="250px">
 
-            <button class="menu-btn" onclick="toggleMenu()">
-                <i id="menuIcon" class="fa fa-bars"></i>
-            </button>
-            
+<script>
 
-            <ul id="navMenu">
-                <li><a href="home.html" class="active">Home <i class="fa fa-home"></i></a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="bitedeals.html">Bite Deals</a></li>
-                <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
-                <li class="login"><a href="login.html">Login<i class="fa fa-sign-in"></i></a></li>
-            </ul>
+    if (localStorage.getItem("loggedIn") !== "true") {
 
-        </nav>
-    </header>
+        window.location.href = "login.html";
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Delicious Food Delivered Fast</h1>
-            <p>Order Your Favourite meals anytime,anywhere</p>
-            <button>Order Now</button>
+    }
+
+</script>
+
+
+<header>
+
+    <nav>
+
+        <a href="home.html" class="logo">
+
+            <img src="Logo.png" alt="SwadBox Logo">
+
+        </a>
+
+
+        <button class="menu-btn" onclick="toggleMenu()">
+
+            <i id="menuIcon" class="fa fa-bars"></i>
+
+        </button>
+
+
+        <ul id="navMenu">
+
+            <li>
+
+                <a href="home.html" class="active">
+
+                    Home
+
+                    <i class="fa fa-home"></i>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="menu.html">
+                    Menu
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="bitedeals.html">
+                    Bite Deals
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="cart.html">
+
+                    <i class="fa fa-shopping-cart"></i>
+
+                    <span id="cartCount">0</span>
+
+                </a>
+
+            </li>
+
+
+            <li class="login">
+
+                <a href="#" onclick="logoutUser()">
+
+                    Logout
+
+                    <i class="fa fa-sign-out"></i>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Delicious Food Delivered Fast
+        </h1>
+
+        <p>
+            Order Your Favourite Meals Anytime, Anywhere
+        </p>
+
+        <a href="menu.html" class="hero-btn">
+            Order Now
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="video-section">
+
+    <div class="video-text">
+
+        <h2>
+            Our Food Story
+        </h2>
+
+        <p>
+            Experience the taste of delicious meals crafted
+            with love. From burgers to pizzas, we deliver
+            happiness at your doorstep.
+        </p>
+
+    </div>
+
+
+    <div class="video-box">
+
+        <video autoplay muted loop playsinline>
+
+            <source src="video.mp4" type="video/mp4">
+
+        </video>
+
+    </div>
+
+</section>
+
+
+<section class="about">
+
+    <h2>
+        Who We Are
+    </h2>
+
+    <p>
+        At BiteBox, we're passionate about bringing people
+        together through great food. Our menu features
+        delicious pizzas, pasta, burgers, refreshing
+        beverages, desserts and crispy sides.
+    </p>
+
+</section>
+
+
+<footer>
+
+    <div class="footer-container">
+
+
+        <div class="footer-box">
+
+            <h2>
+                Bite<span>Box</span>
+            </h2>
+
+            <p>
+                Delicious food delivered at your doorstep,
+                fresh, fast and tasty!
+            </p>
+
         </div>
-    </section>
 
-    <section class="video-section">
-        <!-- left -->
-        <div class="video-text">
-            <h1>Our Food Story</h1>
-            <p>Experience the taste of the delicious meals crafted with love. From burgers to pizzas, we deliver happiness at your doorstep.</p>
+
+        <div class="footer-box">
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="home.html">
+                Home
+            </a>
+
+            <a href="menu.html">
+                Menu
+            </a>
+
+            <a href="bitedeals.html">
+                Bite Deals
+            </a>
+
+            <a href="cart.html">
+                Cart
+            </a>
+
         </div>
 
-        <!--right  -->
-        <div class="video-box">
-            <video autoplay muted loop playsinline>
-                <source src="video.mp4" type="video/mp4">
-            </video>
+
+        <div class="footer-box">
+
+            <h3>
+                Contact
+            </h3>
+
+            <p>
+                Email: support1234@bitebox.com
+            </p>
+
+            <p>
+                Phone: 8909876789
+            </p>
+
         </div>
-    </section>
 
 
+        <div class="footer-box">
 
-    <section class="about">
-        <h2> Who We Are</h2>
-        <p>At BiteBox, we're passionate about bringing people together through great food. 
-            Our menu features juicy burgers, handcrafted pizzas, authentic Italian pasta, 
-            refreshing beverages, delicious desserts, and crispy sides, all made with fresh, 
-            high-quality ingredients. Every dish is prepared with care to deliver rich flavors, 
-            satisfying portions, and an unforgettable dining experience. 
-            Whether you're stopping by for a quick bite, enjoying a meal with friends and family, 
-            or ordering your favorites at home, BiteBox is dedicated to serving delicious food with exceptional quality and 
-            friendly service. Because at BiteBox, every bite is packed with flavor and made to create lasting memories.</p>
-    </section>
+            <h3>
+                Follow Us
+            </h3>
 
+            <div class="social-icons">
 
+                <a href="#">
+                    <i class="fa fa-instagram"></i>
+                </a>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-box">
-                <h2>Bite <span>box</span></h2>
-                <p>delicious food delivered at your doorstep, fresh, fast, tasty..! </p>
+                <a href="#">
+                    <i class="fa fa-facebook"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa fa-whatsapp"></i>
+                </a>
+
             </div>
 
-            <div class="footer-box">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="bitedeals.html">Bite Deals</a></li>
-                    <li><a href="cart.html">Cart</a></li>
-                    <li><a href="menu.html">Menu</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-box">
-                <h3>Contact</h3>
-                <p>Email:- support1234@bitebox.com</p>
-                <p>Phone no:-8909876789</p>
-            </div>
-
-            <div class="footer-box">
-                <h3>Follow us</h3>
-                <div class="social-icons">
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-whatsapp"></i></a>
-                </div>
-
-            </div>
-
         </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2026 BiteBox. All Rights Reserved.</p>
+    </div>
 
-        </div>
-    </footer>
 
-    <script src="scripts.js"></script>
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 BiteBox. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="scripts.js"></script>
 
 </body>
+
 </html>

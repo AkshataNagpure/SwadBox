@@ -1,158 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BiteBox Deals</title>
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>SwadBox - Bite Deals</title>
 
     <link rel="stylesheet" href="style.css">
 
     <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
-    <header>
-        <nav>
-           
-            <img src="Logo.png" alt="BiteBox Logo" height="60px" width="250px">
 
-            <button class="menu-btn" onclick="toggleMenu()">
-                <i id="menuIcon" class="fa fa-bars"></i>
+<script>
+
+    if (localStorage.getItem("loggedIn") !== "true") {
+        window.location.href = "login.html";
+    }
+
+</script>
+
+
+<header>
+
+    <nav>
+
+        <a href="home.html" class="logo">
+
+            <img src="Logo.png" alt="SwadBox Logo">
+
+        </a>
+
+
+        <button class="menu-btn" onclick="toggleMenu()">
+
+            <i id="menuIcon" class="fa fa-bars"></i>
+
+        </button>
+
+
+        <ul id="navMenu">
+
+            <li>
+
+                <a href="home.html">
+
+                    Home
+                    <i class="fa fa-home"></i>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="menu.html">
+                    Menu
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="bitedeals.html" class="active">
+                    Bite Deals
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="cart.html">
+
+                    <i class="fa fa-shopping-cart"></i>
+
+                    <span id="cartCount">0</span>
+
+                </a>
+
+            </li>
+
+
+            <li class="login">
+
+                <a href="#" onclick="logoutUser()">
+
+                    Logout
+                    <i class="fa fa-sign-out"></i>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<section class="deals-page">
+
+    <div class="deal-hero">
+
+        <h1>
+            Bite Deals
+        </h1>
+
+        <p>
+            Delicious combos at amazing prices
+        </p>
+
+    </div>
+
+
+    <h2 class="section-title">
+        Today's Special Deals
+    </h2>
+
+
+    <div class="combo-container">
+
+
+        <!-- COMBO 1 -->
+
+        <div class="combo-card">
+
+            <img
+                src="combo1.png"
+                alt="Classic Combo">
+
+            <h3>
+                Classic Combo
+            </h3>
+
+            <p>
+                Burger + Fries + Cold Drink
+            </p>
+
+            <span>
+                ₹299
+            </span>
+
+            <button
+                onclick="addDeal(
+                    'Classic Combo',
+                    299,
+                    'combo1.png'
+                )">
+
+                Add to Cart
+
             </button>
-            
 
-            <ul id="navMenu">
-                <li><a href="home.html" class="active">Home <i class="fa fa-home"></i></a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="bitedeals.html">Bite Deals</a></li>
-                <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
-                <li class="login"><a href="login.html">Login<i class="fa fa-sign-in"></i></a></li>
-            </ul>
-
-        </nav>
-    </header>
-
-    <section class="deals-page">
-        <div class="deal-hero">
-            <h1>BiteDeals</h1>
-            <p>Save more on Your favourite meals!</p>
-        </div>
-
-        <section class="combo-section">
-            <h2 class="section-title">Today's Combo Offer</h2>
-            <div class="combo-container">
-                <div class="combo-card">
-                    <img src="combo1.png" alt="Combo 1">
-                    <h3>Burger+Fries</h3>
-                    <p>Perfect Snack Combo</p>
-                    <h4><span>₹399</span>₹299</h4>
-                    <button>Order Now</button>
-                </div>
-
-                <div class="combo-card">
-                    <img src="combo2.png" alt="Combo 2">
-                    <h3>Pizza + Coke</h3>
-                    <p>Weekend Special</p>
-                    <h4><span>₹499</span>₹399</h4>
-                    <button>Order Now</button>
-                </div>
-
-
-                <div class="combo-card">
-                    <img src="combo3.png" alt="Combo 3">
-                    <h3>Pasta + Garlic bread</h3>
-                    <p>Itallian Combo</p>
-                    <h4><span>₹459</span>₹329</h4>
-                    <button>Order Now</button>
-                </div>
-
-                <div class="combo-card">
-                    <img src="combo4.png" alt="Combo 4">
-                    <h3>Paneer Pizza + Oreo Shake</h3>
-                    <p>Cheesy Delight Combo</p>
-                    <h4><span>₹499</span> ₹379</h4>
-                    <button>Order Now</button>
-                </div>
-
-                <div class="combo-card">
-                    <img src="combo5.png" alt="Combo 5">
-                    <h3>Burger + Cold Coffee</h3>
-                    <p>Classic Meal Combo</p>
-                    <h4><span>₹358</span> ₹279</h4>
-                    <button>Order Now</button>
-                </div>
-
-                <div class="combo-card">
-                    <img src="combo6.png" alt="Combo 6">
-                    <h3>Loaded Nachos + Brownie</h3>
-                    <p>Crunch & Sweet Combo</p>
-                    <h4><span>₹418</span> ₹319</h4>
-                    <button>Order Now</button>
-</div>
-
-            </div>
-        </section>
-
-
-        
-        <h2 class="section-title">Special Day Offers</h2>
-        <div class="deals-container">
-
-            <div class="deal-card">
-                <h3>Friday Feast</h3>
-                <p>Get 50% off on Burger!</p>
-                <span>Use Code: FRI50</span>
-            </div>
-
-            <div class="deal-card">
-                <h3>Saturday Special</h3>
-                <p>Buy 1 get 1 pizza!</p>
-                <span>Use Code: SATPIZZA</span>
-            </div>
-
-            <div class="deal-card">
-                <h3>Sunday Treat</h3>
-                <p>Flat ₹120 off!</p>
-                <span>Use Code: SUN120</span>
-            </div>
         </div>
 
 
-        <h2 class="section-title">Hot Deals</h2>
-        <div class="deals-container">
-            <div class="deal-card red">
-                <h3>50% OFF</h3>
-                <p>On all Burgers!</p>
-                <span>BURGER50</span>
-            </div>
+        <!-- COMBO 2 -->
 
-            <div class="deal-card yellow">
-                <h3>Free Delivery</h3>
-                <p>First order only!</p>
-                <span>FREEDEL</span>
-            </div>
+        <div class="combo-card">
 
-            <div class="deal-card green">
-                <h3>Flat ₹100 OFF</h3>
-                <p>Above ₹499</p>
-                <span>SAVE100</span>
-            </div>
+            <img
+                src="combo2.png"
+                alt="Pizza Combo">
 
-            
+            <h3>
+                Pizza Combo
+            </h3>
 
-            
+            <p>
+                Pizza + Fries + Cold Drink
+            </p>
+
+            <span>
+                ₹399
+            </span>
+
+            <button
+                onclick="addDeal(
+                    'Pizza Combo',
+                    399,
+                    'combo2.png'
+                )">
+
+                Add to Cart
+
+            </button>
+
         </div>
-        
-    </section>
-        
+
+
+        <!-- COMBO 3 -->
+
+        <div class="combo-card">
+
+            <img
+                src="combo3.png"
+                alt="Family Combo">
+
+            <h3>
+                Family Combo
+            </h3>
+
+            <p>
+                2 Burgers + Pizza + Fries
+            </p>
+
+            <span>
+                ₹599
+            </span>
+
+            <button
+                onclick="addDeal(
+                    'Family Combo',
+                    599,
+                    'combo3.png'
+                )">
+
+                Add to Cart
+
+            </button>
+
+        </div>
+
+
+        <!-- COMBO 4 -->
+
+        <div class="combo-card">
+
+            <img
+                src="combo4.png"
+                alt="Pasta Combo">
+
+            <h3>
+                Pasta Combo
+            </h3>
+
+            <p>
+                Creamy Pasta + Fries + Drink
+            </p>
+
+            <span>
+                ₹349
+            </span>
+
+            <button
+                onclick="addDeal(
+                    'Pasta Combo',
+                    349,
+                    'combo4.png'
+                )">
+
+                Add to Cart
+
+            </button>
+
+        </div>
+
+
+        <!-- COMBO 5 -->
+
+        <div class="combo-card">
+
+            <img
+                src="combo5.png"
+                alt="Party Combo">
+
+            <h3>
+                Party Combo
+            </h3>
+
+            <p>
+                Pizza + Burger + Fries + Drinks
+            </p>
+
+            <span>
+                ₹499
+            </span>
+
+            <button
+                onclick="addDeal(
+                    'Party Combo',
+                    499,
+                    'combo5.png'
+                )">
+
+                Add to Cart
+
+            </button>
+
+        </div>
+
+
+        <!-- COMBO 6 -->
+
+        <div class="combo-card">
+
+            <img
+                src="combo6.png"
+                alt="Mega Combo">
+
+            <h3>
+                Mega Combo
+            </h3>
+
+            <p>
+                Pizza + Burger + Pasta + Dessert
+            </p>
+
+            <span>
+                ₹699
+            </span>
+
+            <button
+                onclick="addDeal(
+                    'Mega Combo',
+                    699,
+                    'combo6.png'
+                )">
+
+                Add to Cart
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<footer>
 
     
 
 
-    
+    <div class="footer-bottom">
 
-    <script src="scripts.js"></script>
+        <p>
+            © 2026 BiteBox. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="scripts.js"></script>
 
 </body>
+
 </html>
