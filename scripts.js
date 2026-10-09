@@ -32,7 +32,7 @@ function loginUser(event) {
         alert("Login successful!");
 
         window.location.href =
-            "home.html";
+            "index.html";
 
     } else {
 
